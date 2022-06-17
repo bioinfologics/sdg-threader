@@ -97,7 +97,6 @@ exclude link 2165456 2223485
 ```
 02-scaffolder/07-thread_and_scaff.py -o cachn1 -u 67 -s 275 --min_hits 3 --min_kci .25 --max_kci 2.75 --min_links 10 --max_thread_count 500 --rrtg_edits cachn1.rrtg_edits
 ```
-Nodes and linkages from the contig graph can be accessed through SDG interactively. This allows the user to check long-read support for any potential mis-joins in the graph.
 
 ![](https://i.imgur.com/pCSmfKY.png)
 A canonical repeat (red) causing a misjoin between two chromosomes. This node can be manually removed, which will uncouple the chromosomes. 
