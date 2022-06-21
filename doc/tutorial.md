@@ -16,15 +16,15 @@ Once you have the FASTQ files, use the [K-mer Analysis Toolkit (KAT)](https://gi
 kat hist -o chn1_pe -t 8 -m 27 -H 100000000 SRR13441295.1_?.fastq
 ```
 
-![](https://i.imgur.com/K69NuVL.png)
+![](https://i.imgur.com/4wcK60X.png)
 
 The histogram shows a fundamental peak at a frequency of 67 which contains unique, heterozygous content from the reads. This is followed by a further peak at a harmonic frequency of 134, containing homozygous content. This is a typical diploid spectra signature with high homozygosity. 
 
 ## 3. Create SDG datastores from the reads
-You need to convert the FASTQ read files to datastores, this is the format that SDG requires.
+You need to convert the FASTQ read files to datastores, one for the Illumina reads and one for the Nanopore reads. This is the format that SDG requires.
 ```
-sdg-datastore make -1 LIB4432_R1.fastq -2 LIB4432_R2.fastq -t paired -o cachn1_pe
-sdg-datastore make -L LIB4432_R1.fastq -t long -o cachn1_nano
+sdg-datastore make -1 SRR13441295.1_1.fastq -2 SRR13441295.1_1.fastq -t paired -o cachn1_pe
+sdg-datastore make -L SRR13441294.1.fastq -t long -o cachn1_nano
 ```
 
 ## 4. Build contig graph
