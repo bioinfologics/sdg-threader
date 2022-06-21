@@ -5,8 +5,8 @@ High-Quality Genome Reconstruction of Candida albicans CHN1 Using Nanopore and I
 Authors: Shipra Garg, Piyush Ranjan, John R. Erb-Downward and Gary B. Huffnagle.
 DOI: [https://doi.org/10.1128/MRA.00299-21](https://doi.org/10.1128/MRA.00299-21) 
 
-## 1. Download and compile software
-Is the new repo just for the threader?
+## 1. Download SDG
+Download and compile the latest version of SDG from [https://github.com/bioinfologics/sdg](https://github.com/bioinfologics/sdg)
 
 ## 2. Download read datasets and check kmer histogram
 The raw reads are available under accession numbers [SRX9854709](https://www.ncbi.nlm.nih.gov/sra/SRX9854709) (Illumina) and [SRX9854710](https://www.ncbi.nlm.nih.gov/sra/SRX9854710) (Nanopore) within BioProject [PRJNA692229](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA692229).
