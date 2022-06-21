@@ -11,9 +11,9 @@ Download and compile the latest version of SDG from [https://github.com/bioinfol
 ## 2. Download read datasets and check kmer histogram
 The raw reads are available under accession numbers [SRX9854709](https://www.ncbi.nlm.nih.gov/sra/SRX9854709) (Illumina) and [SRX9854710](https://www.ncbi.nlm.nih.gov/sra/SRX9854710) (Nanopore) within BioProject [PRJNA692229](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA692229).
 
-Use the [K-mer Analysis Toolkit (KAT)](https://github.com/TGAC/KAT) to generate a kmer histogram from the paired-end reads. This will provide us with the unique coverage frequency estimate we need.
+Once you have the FASTQ files, use the [K-mer Analysis Toolkit (KAT)](https://github.com/TGAC/KAT) to generate a kmer histogram from the paired-end reads. This will provide us with the unique coverage frequency estimate we need.
 ```
-kat hist -o scer_pe_hist -h 80 -t 8 -m 27 -H 100000000 LIB4432_R?.fastq
+kat hist -o chn1_pe -t 8 -m 27 -H 100000000 SRR13441295.1_?.fastq
 ```
 
 ![](https://i.imgur.com/K69NuVL.png)
