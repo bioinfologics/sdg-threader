@@ -36,6 +36,8 @@ The SDG pipeline uses the KCI to create a de-bruin graph suitable for haplotype 
 ```
 01-contigger/01-dbg.py -o cachn1 -c 3 --kci_k 51 -p cachn1/cachn1_pe.prseq
 ```
+Note: This step takes the longest to compute, up to several hours.
+
 ### Step 2: Remove low coverage nodes
 In the second step, unique anchors are identified as nodes which occur uniquely in the genome and are represented by a KCI of 1. Low KCI nodes and tips are removed if the nodes they are connected to have an alternative route through the graph. Repeats are retained for phasing, but some erroneous nodes will remain.
 ```
