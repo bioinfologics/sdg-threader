@@ -34,7 +34,7 @@ For a given node in a graph, the KCI indicates how many times that node should a
 ### Step 1: Create DBG from short reads
 The SDG pipeline uses the KCI to create a de-bruin graph suitable for haplotype reconstruction in five major steps. In the first step, the initial graph is constructed from the reads. The graph topology is categorised into three groups. Tips are path dead-ends, which contain only an input connection from a previous node. Canonical repeats are repetitive nodes with a minimum of 2 input and output connections. These may be higher coverage areas that are found on more than one of the haplotypes or repetitive content. Finally, bubble sides are parallel nodes connecting to the same input and output nodes with no other connections, forming distinctive bubbles in the graph. Depending on your dataset and available resources this step can take several hours. The test dataset should run in around 4 hours.
 ```
-01-contigger/01-dbg.py -o cachn1 -c 3 --kci_k 51 -p cachn1/cachn1_pe.prseq
+01-contigger/01-dbg.py -o cachn1 -c 3 --kci_k 51 -p cachn1_pe.prseq
 ```
 ### Step 2: Remove low coverage nodes
 In the second step, unique anchors are identified as nodes which occur uniquely in the genome and are represented by a KCI of 1. Low KCI nodes and tips are removed if the nodes they are connected to have an alternative route through the graph. Repeats are retained for phasing, but some erroneous nodes will remain.
@@ -54,7 +54,7 @@ The fourth step introduces STRIDER with long-read support to resolve longer cont
 ### Step 5: Canonical repeat resolution using long reads
 The final step uses the long-reads to give a final level of haplotype expansion. This traces more paths through the canonical repeats and gives support to paths between canonical repeats and bubble side nodes. 
 ```
-01-contigger/05-long_repeats.py -o cachn1 -u 67 -l cachn1/cachn1_nano.loseq --lr_min_support 5 --lr_max_noise 5 --lr_snr 5
+01-contigger/05-long_repeats.py -o cachn1 -u 67 -l cachn1_nano.loseq --lr_min_support 5 --lr_max_noise 5 --lr_snr 5
 ```
 ## 5. ReadThreadGraph
 SDG's haplotype-specific assemblies are constructed from a ReadThreadsGraph. This graph contains single-copy anchor sequences, extracted from an assembly graph; and threads representing long read alignments to these anchor sequences. SDG then produces a haplotype-specific partition of the graph, where each disjoint class contains a subset of its anchors and threads representing a single haplotype in a unique region. The anchors of each class can be then ordered, producing a backbone that is used to assemble the haplotype-specific consensus.
