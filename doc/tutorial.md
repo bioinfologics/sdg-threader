@@ -67,11 +67,11 @@ Using long read mappings to the anchor graph a ReadThreadsGraph is constructed, 
 
 Properties of the ReadThreadsGraph can be used to cleanup and define proximity between pairs of nodes, pairs of threads, etc.
 
-Two fundamental functions are the Thread neighborhood (i.e. the group of trheads that share nodes with a thread) and Node neighborhoouds (i.e. the group of nodes that share nodes with a node).
+Two fundamental functions are the Thread neighbourhood (i.e. the group of threads that share nodes with a thread) and Node neighbourhoods (i.e. the group of nodes that share nodes with a node).
 
 Thread neighborhood can be computed by simply going thorugh the nodes and incrementing a counter for each pair of threads seen concurrently.
 
-For node neighbourhood, as to simplify computation, the neighborhood is restricted to nodes seen around a set number of nodes around in a thread. I.e. for the node in position x in a thread, all nodes in positions x-radius and x+radius have their neighborhood values incremented.
+To simplify computation, each node neighbourhood is restricted to nodes seen around a set number of nodes around in a thread. I.e. for the node in position x in a thread, all nodes in positions x-radius and x+radius have their neighborhood values incremented.
 
 Long read mapping was used to scaffold haplotypes. The SDG HappySorter uses long-reads to bridge unlinked nodes, mapping only to the unique anchors of the long contigs. This final level of assembly can provide support for complex regions that are otherwise difficult to resolve, such as highly repetitive regions and regions with low coverage. It uses the unique nodes from STRIDER to map against the long reads, supporting further haplotype resolution.
 
